@@ -19,6 +19,12 @@ Hỗ trợ Dynamic CRUD, Advanced Query, Relationships, Auth & Authorization.
 
 ---
 
+## API Docs (Swagger UI)
+
+**Live (Render):** https://smart-api-hub-1jw1.onrender.com/api-docs/
+
+---
+
 ## Architecture
 
 ```mermaid
