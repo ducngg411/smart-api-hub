@@ -6,11 +6,13 @@ import resourceRouter from './routes/resource.routes';
 import authRouter from './routes/auth.routes';
 import { errorHandler } from './middlewares/error.middleware';
 import { swaggerSpec } from './config/swagger';
+import cors from 'cors';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use('/', authRouter);
 

@@ -1,8 +1,9 @@
 import dotenv from 'dotenv';
-dotenv.config();
-
 import app from './app';
 import { runMigration } from './db/migrate';
+
+dotenv.config();
+
 
 const PORT = process.env.PORT || 3000;
 
