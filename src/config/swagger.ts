@@ -7,7 +7,12 @@ export const swaggerSpec = {
             'REST API Platform tự động sinh API từ `schema.json`. ' +
             'Hỗ trợ Dynamic CRUD, Advanced Query, Relationships, Auth & Authorization.',
     },
-    servers: [{ url: 'http://localhost:3000', description: 'Local' }],
+    servers: [
+        {
+            url: process.env.RENDER_EXTERNAL_URL || `http://localhost:${process.env.PORT || 3000}`,
+            description: process.env.RENDER_EXTERNAL_URL ? 'Production (Render)' : 'Local',
+        },
+    ],
     components: {
         securitySchemes: {
             BearerAuth: {
