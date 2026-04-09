@@ -1,4 +1,4 @@
-**Nguyễn Trong Đức**
+**Nguyễn Trọng Đức**
 **DucNT190**
 **HN26_FR_ReactJS_01**
 
