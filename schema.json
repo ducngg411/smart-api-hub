@@ -1,0 +1,73 @@
+{
+    "users": [
+        {
+        "email": "admin@example.com",
+        "password": "hashed_password",
+        "role": "admin"
+        },
+        {
+        "email": "admin1@example.com",
+        "password": "hashed_password",
+        "role": "user"
+        },
+        {
+        "email": "admin2@example.com",
+        "password": "hashed_password",
+        "role": "user"
+        }
+    ],
+    "posts": [
+        {
+        "title": "Bài viết đầu tiên",
+        "content": "Nội dung...",
+        "user_id": 10
+        },
+        {
+        "title": "Bài viết thứ hai",
+        "content": "Nội dung...",
+        "user_id": 10
+        },
+        {
+        "title": "Bài viết thứ ba",
+        "content": "Nội dung...",
+        "user_id": 10
+        },
+        {
+        "title": "Bài viết thứ tư",
+        "content": "Nội dung...",
+        "user_id": 10
+        },
+        {
+        "title": "Bài viết thứ năm",
+        "content": "Nội dung...",
+        "user_id": 1
+        },
+        {
+        "title": "Bài viết thứ sáu",
+        "content": "Nội dung...",
+        "user_id": 1
+        }
+    ],
+    "comments": [
+        {
+        "body": "Comment đầu tiên",
+        "post_id": 1,
+        "user_id": 1
+        },
+        {
+        "body": "Comment thứ hai",
+        "post_id": 1,
+        "user_id": 1
+        },
+        {
+        "body": "Comment thứ ba",
+        "post_id": 1,
+        "user_id": 1
+        },
+        {
+        "body": "Comment thứ tư",
+        "post_id": 1,
+        "user_id": 1
+        }
+    ]
+}
