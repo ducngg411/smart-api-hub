@@ -6,14 +6,21 @@ dotenv.config()
 
 pg.types.setTypeParser(20, (val: string) => parseInt(val, 10));
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 export const db = knex({
     client: 'pg',
-    connection: {
-        host: process.env.DB_HOST,
-        port: Number(process.env.DB_PORT),
-        database: process.env.DB_NAME,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-    }
+    connection: process.env.DATABASE_URL
+        ? {
+            connectionString: process.env.DATABASE_URL,
+            ssl: isProduction ? { rejectUnauthorized: false } : false,
+        }
+        : {
+            host: process.env.DB_HOST,
+            port: Number(process.env.DB_PORT),
+            database: process.env.DB_NAME,
+            user: process.env.DB_USER,
+            password: process.env.DB_PASSWORD,
+        },
 })
 
