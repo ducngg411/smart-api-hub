@@ -183,6 +183,46 @@ http://localhost:3000/api-docs
 | `q` | `?q=hello` | Tìm kiếm toàn văn (text columns) |
 | `<col>_gte/lte/ne/like` | `?id_gte=5` | Filtering nâng cao |
 
+
+---
+
+## Code Structure
+
+```
+smart-api-hub/
+├── src/
+│   ├── index.ts                        # Entry point, khởi động server
+│   ├── app.ts                          # Khởi tạo Express app, register routes & middleware
+│   ├── config/
+│   │   ├── jwt.ts                      # JWT secret & sign/verify helpers
+│   │   └── swagger.ts                  # Swagger/OpenAPI spec config
+│   ├── controllers/
+│   │   ├── auth.controller.ts          # register, login handlers
+│   │   └── resource.controller.ts      # Dynamic CRUD (list, getById, create, update, delete)
+│   ├── db/
+│   │   ├── knex.ts                     # Knex instance (PostgreSQL connection)
+│   │   └── migrate.ts                  # Auto-migration từ schema.json
+│   ├── middlewares/
+│   │   ├── auth.middleware.ts          # authenticate (JWT) + requireAdmin
+│   │   ├── error.middleware.ts         # Global error handler
+│   │   └── validate.middleware.ts      # Zod body validation middleware
+│   ├── routes/
+│   │   ├── auth.routes.ts              # POST /auth/register, /auth/login
+│   │   └── resource.routes.ts          # Dynamic /:resource routes
+│   └── utils/
+│       ├── auditLog.ts                 # Ghi audit log vào DB (async, non-blocking)
+│       ├── resourceBodySchema.ts       # Sinh Zod schema từ schema.json tại runtime
+│       ├── tableValidator.ts           # Kiểm tra resource name hợp lệ
+│       └── validate.ts                 # Zod helper utilities
+├── tests/
+│   └── app.test.ts                     # Integration tests (Vitest + Supertest)
+├── schema.json                         # Định nghĩa bảng & seed data
+├── docker-compose.yaml
+├── Dockerfile
+├── tsconfig.json
+└── vitest.config.ts
+```
+
 ---
 
 ## Schema mẫu (`schema.json`)
